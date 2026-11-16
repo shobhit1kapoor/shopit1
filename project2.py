@@ -254,7 +254,8 @@ def main():
     for teller in tellers:
         teller.join()
 
-    bank.log("Teller", 0, "the bank closes for the day")
+    # This message comes from the main thread, not from Teller 0.
+    print("The bank closes for the day.", flush=True)
 
 
 if __name__ == "__main__":

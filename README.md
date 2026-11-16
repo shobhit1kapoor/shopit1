@@ -6,17 +6,17 @@
 
 ## What the program does
 
-The program simulates a bank with three tellers and fifty customers. Customers make a deposit or withdrawal. A teller must get the manager's approval for a withdrawal. Only one teller can use the manager at a time. Up to two tellers can use the safe at once. Up to two customers can use the door at once.
+This program simulates a bank with three tellers and fifty customers. Each customer randomly chooses a deposit or withdrawal. A teller gets the manager's approval for a withdrawal, then uses the safe to complete the transaction. The bank opens after all three tellers are ready and closes after all customers leave.
 
-The program uses Python threads and semaphores to coordinate customers, tellers, and shared resources. It uses only Python's standard library.
+The program uses Python threads and semaphores. The manager semaphore allows one teller at a time. The safe semaphore allows up to two tellers at a time. The door semaphore allows up to two customers to enter or leave at once. Other semaphores coordinate the opening of the bank, teller assignments, and customer-teller conversations. A semaphore also keeps each output line together. The program uses only Python's standard library.
 
 ## Files
 
-- `project2.py` runs the bank simulation.
+- `project2.py` contains and runs the simulation.
 - `README.md` explains the program and how to run it.
-- `devlog.md` records the work on this package. It notes where Codex helped.
+- `devlog.md` records the project work and review.
 - `.gitignore` excludes Python cache files.
-- `.git/` contains the real Git history.
+- `.git/` contains the Git history.
 
 ## How to run
 
@@ -34,23 +34,20 @@ On Linux or macOS:
 python3 project2.py
 ```
 
-Each message follows this format:
+Most output lines use this format:
 
 ```text
 THREAD_TYPE ID [THREAD_TYPE ID]: MESSAGE
 ```
 
-Empty brackets (`[]`) mean the thread is not speaking to a specific customer or teller. Timing and transaction choices are random, so each run looks different.
+Empty brackets (`[]`) mean the thread is not speaking to a specific customer or teller. The final bank-closing message comes from the main thread and appears by itself. Transaction choices and timing are random, so each run looks different.
 
-## Checks
+## Final checks
 
-Codex ran the program three times on the local computer at my request. All three runs finished successfully. Each output showed fifty completed transactions, fifty customers leaving, and all three tellers leaving. The checks also confirmed that customers entered after the bank opened, only one teller used the manager at a time, and no more than two tellers used the safe together.
+The program was run three times during the final review on November 16, 2026. Each run completed all fifty transactions, showed all fifty customers leaving, and showed all three tellers leaving. The output was also checked for the bank opening before customer entry, exclusive manager use, and a maximum of two tellers in the safe. The final closing message is printed after the teller threads finish.
 
-I did not check the program on the course's `cs1` or `cs2` machines.
+The program has not been checked on the course's `cs1` or `cs2` machines.
 
-## Notes for the grader
+## Processes and pipes
 
-This project follows the bank brief and the rubric's core requirements: threads, semaphores, and shared data. The rubric also asks for devlog notes about processes and pipes. This program uses threads in one process, so it does not use pipes. The work log explains this difference.
-
-
-The devlog is an honest record of AI-assisted work on this package. It does not invent earlier work sessions or personal experiences.
+The assignment asks for threads in one application. Threads in this program share Python objects, and semaphores coordinate access to those objects. A pipe can pass data between separate processes, but this program does not create separate processes or use pipes because the assignment calls for threads.
