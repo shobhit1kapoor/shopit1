@@ -1,34 +1,40 @@
 # CS4348 Project 2: Bank Simulation
 
-This program simulates the bank described in the Project 2 assignment using Python threads and `threading.Semaphore`.
+This repository contains a single-file Python simulation of the bank described in the supplied Project 2 brief. It uses only the Python standard library.
 
-## Run
+## Files
 
-Requires Python 3.9 or newer. No third-party packages are needed.
+- `project2.py` implements three teller threads, fifty customer threads, the bank-opening gate, customer line and teller dispatch, customer/teller handshakes, door capacity, manager access, safe capacity, and synchronized output.
+- `README.md` describes the program and how to run it.
+- `devlog.md` records the actual AI-assisted work on this package. It is transparent about the source of the entries and does not claim to be Shobhit's personal multi-session reflection.
+- `.gitignore` excludes Python bytecode caches.
+- `.git/` contains the repository history.
 
-```powershell
+## Run from the command line
+
+Requires Python 3.7 or newer and no external packages.
+
+```text
 python project2.py
 ```
 
-The program starts three teller threads, then fifty customer threads. It prints one synchronized action line at a time in the format:
+On systems where the Python 3 command is named `python3`, use `python3 project2.py`.
 
-```text
-THREAD_TYPE ID [THREAD_TYPE ID]: MESSAGE
-```
-
-An empty counterpart is shown as `[]` when a thread is not interacting with a particular other thread.
+Each log line follows `THREAD_TYPE ID [THREAD_TYPE ID]: MESSAGE`; `[]` means there is no current counterpart. Durations and deposit/withdrawal choices are random, so output order varies between runs.
 
 ## Synchronization model
 
-- A bank-open semaphore keeps customers from entering until all three tellers are ready.
-- A capacity-two door semaphore controls customer entry and exit.
-- A capacity-one manager semaphore serializes withdrawal approvals.
-- A capacity-two safe semaphore limits the number of tellers performing transactions in the safe.
-- A dispatch semaphore protects the ready-teller queue and customer line; per-customer/teller semaphores coordinate assignment, introductions, transaction requests, completion, and departure.
-- An output semaphore keeps each log line intact.
+- A bank-open semaphore releases customers only after all three tellers are ready.
+- A capacity-two semaphore controls customer entry and exit through the door.
+- A capacity-one semaphore serializes withdrawal approvals from the manager.
+- A capacity-two semaphore limits tellers inside the safe.
+- A dispatch semaphore protects the customer queue and ready-teller queue. Per-thread semaphores coordinate assignment, transaction requests, completion, and customer departure.
+- An output semaphore keeps log lines intact.
 
-Each customer selects a random deposit or withdrawal and waits 0–100 ms before visiting. Manager and safe work take the durations specified in the assignment. Random choices are unseeded, so the order and timing vary from run to run.
+The program uses Python threads and semaphores, with shared objects for communication. It does not use third-party libraries.
 
 ## Submission notes
 
-The supplied sanitized rubric refers to a devlog, commit history, processes, and pipes, while the Project 2 brief describes a thread-based bank simulation. This repository includes the implementation and a truthful work log for this session; it does not claim earlier sessions or backdated commits. Review the rubric with the instructor if those extra grading requirements apply.
+The supplied Git/Project Instructions describe a clean working tree, a root `devlog.md`, a README, and a ZIP of the repository. This package follows those file and packaging instructions. Its Git history records the actual work dates and is not backdated. The supplied sanitized rubric also mentions processes and pipes, which do not appear in the bank simulation brief; confirm whether those rubric categories apply to this project.
+
+The devlog is an honest AI-assisted work record, not a substitute for the student's own reflection entries if the course requires them. Review and supplement it with your own account before submitting.
