@@ -39,3 +39,7 @@ This review happened in one recorded work period. The original work log above re
 **Thoughts so far:** Shobhit confirmed that the rubric is for this bank project. The points for threads, semaphores, and shared data match the assignment. The devlog section also asks about processes and pipes, even though the bank program uses threads.
 
 **Plan for this session:** Update the README and work log to explain this clearly. Keep the code aligned with the bank assignment, and do not claim that it uses processes or pipes.
+
+## 2026-11-16 05:11:10 CST — rubric review reflection (AI-assisted)
+
+Shobhit confirmed that the rubric is for this project. I updated the README to say that clearly. With Codex's help, I connected the processes-and-pipes rubric items to this program: threads share data inside one process, and semaphores control when they use that data. Separate processes can use pipes to pass data between them. The bank brief asks for threads, so this program does not use pipes. I did not add a different process design that would conflict with the assignment.
