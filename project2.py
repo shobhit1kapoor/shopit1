@@ -195,9 +195,9 @@ class Teller(threading.Thread):
             try:
                 bank.log("Teller", tid, "gets manager's permission", ("Customer", cid))
                 time.sleep(delay / 1000.0)
+                bank.log("Teller", tid, "got manager's permission", ("Customer", cid))
             finally:
                 bank.manager.release()
-            bank.log("Teller", tid, "got manager's permission", ("Customer", cid))
 
         delay = self.random.randint(10, 50)
         bank.log("Teller", tid, "goes to the safe", ("Customer", cid))
