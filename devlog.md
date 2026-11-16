@@ -33,3 +33,9 @@ The README now lists the project files and command-line run instructions, and Gi
 The first checks found that the manager's completion message could appear after the next teller's permission message. Codex moved that message so it prints before the manager semaphore is released. Three new runs then finished successfully. Each run showed fifty completed transactions, fifty customer departures, three teller departures, and the right manager and safe limits. The README now has the run commands and my course details. The program has not been checked on `cs1` or `cs2`.
 
 This review happened in one recorded work period. The original work log above remains unchanged. This entry does not claim that I kept a multi-session diary while the code was written.
+
+## 2026-11-16 05:10:35 CST — rubric review plan (AI-assisted)
+
+**Thoughts so far:** Shobhit confirmed that the rubric is for this bank project. The points for threads, semaphores, and shared data match the assignment. The devlog section also asks about processes and pipes, even though the bank program uses threads.
+
+**Plan for this session:** Update the README and work log to explain this clearly. Keep the code aligned with the bank assignment, and do not claim that it uses processes or pipes.
