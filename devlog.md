@@ -43,3 +43,7 @@ This review happened in one recorded work period. The original work log above re
 ## 2026-11-16 05:11:10 CST — rubric review reflection (AI-assisted)
 
 Shobhit confirmed that the rubric is for this project. I updated the README to say that clearly. With Codex's help, I connected the processes-and-pipes rubric items to this program: threads share data inside one process, and semaphores control when they use that data. Separate processes can use pipes to pass data between them. The bank brief asks for threads, so this program does not use pipes. I did not add a different process design that would conflict with the assignment.
+
+## 2026-11-16 05:21:57 CST — date correction
+
+Shobhit clarified that the due date printed in the supplied project brief is wrong. I removed the deadline comparison from the README and will not use that date to judge the Git history. The actual due date was not given here. Git keeps the real dates of the work.

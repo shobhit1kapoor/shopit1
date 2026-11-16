@@ -52,6 +52,5 @@ I did not check the program on the course's `cs1` or `cs2` machines.
 
 This project follows the bank brief and the rubric's core requirements: threads, semaphores, and shared data. The rubric also asks for devlog notes about processes and pipes. This program uses threads in one process, so it does not use pipes. The work log explains this difference.
 
-The Git history records the real work dates. The commits are dated November 16, 2026; they have not been backdated to the assignment's listed due date.
 
 The devlog is an honest record of AI-assisted work on this package. It does not invent earlier work sessions or personal experiences.
