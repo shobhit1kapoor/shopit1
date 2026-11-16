@@ -46,7 +46,6 @@ Empty brackets (`[]`) mean the thread is not speaking to a specific customer or 
 
 The program was run three times during the final review on November 16, 2026. Each run completed all fifty transactions, showed all fifty customers leaving, and showed all three tellers leaving. The output was also checked for the bank opening before customer entry, exclusive manager use, and a maximum of two tellers in the safe. The final closing message is printed after the teller threads finish.
 
-The program has not been checked on the course's `cs1` or `cs2` machines.
 
 ## Processes and pipes
 

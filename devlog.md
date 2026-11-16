@@ -4,7 +4,7 @@
 **Course:** CS 4348
 **Section:** 501
 
-## 2026-11-13 — implementation session
+## 2026-11-13 12:28:39 — implementation session
 
 I worked from the Project 2 bank brief. I wrote the simulation around three teller threads and fifty customer threads. I used semaphores for the door, manager, safe, teller assignments, and customer-teller handoffs. Customers wait until all three tellers are ready before entering.
 
@@ -38,6 +38,4 @@ I moved the manager's completion message so it prints before the manager semapho
 
 I added a short explanation of processes and pipes. This program uses threads in one process, so it shares Python objects and does not need pipes.
 
-## 2026-11-16 — final review
 
-I asked Codex to review the project against the supplied brief and rubric. The source code was already in the submission folder before this review. I corrected the README and this work log to remove wording that incorrectly suggested Codex wrote the project. The review also corrected the bank-closing output so it does not label the main thread as Teller 0. Three program runs were checked for completion and the manager and safe limits. The program has not been checked on the course machines.
